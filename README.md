@@ -1,71 +1,49 @@
-# Tabloid - Fullstack
+#####################################################################
+# Pulse - A Social Media Platform for Musicians and Music Artists    #
+#####################################################################
+
+![Pulse Logo](https://i.ibb.co/BVrQpjq/Pulse-Logo.png)
+
+## Introduction
+
+Pulse is a social media platform designed exclusively for musicians and music artists, providing them with a unique and dedicated space to connect, collaborate, and showcase their musical talents. Whether you're a seasoned musician, a budding artist, or simply a music enthusiast, Pulse offers a vibrant community where you can share your work, explore new talents, and engage with like-minded individuals in the music industry.
+
+## Features
+
+Pulse comes equipped with a variety of features tailored to meet the specific needs of musicians and music artists. Some of its key features include:
+
+### 1. Login Page
+
+The Login Page serves as the entry point to the Pulse platform. Users can securely log in with their registered credentials to access their personalized profiles and connect with the vibrant music community.
+
+### 2. Home Page
+
+Upon logging in, you are greeted with the Home Page, a "For You" feed showcase posts from musicians you follow. Users can stay updated on the latest musical creations, collaborations, and announcements from their favorite artists.
+
+### 3. Explore Page
+
+The Explore Page allows users to discover new talent and explore a wide range of musical content from various genres. It presents a curated selection of trending posts, top musicians, and recommended tracks, expanding users' musical horizons.
+
+### 4. Your Post's Page
+
+The Your Post's Page is a central hub for each user, displaying all the posts they have shared on Pulse. It enables users to manage their content, track engagement, and respond to comments from their followers.
+
+### 5. Create Post Form
+
+Pulse offers a user-friendly Create Post Form, allowing musicians to effortlessly share their latest compositions, cover songs, music videos, announcements, and more with the community. Users can enhance their posts with multimedia attachments and engaging captions.
+
+### 6. Post Details Page
+
+The Post Details Page provides a comprehensive view of each post, featuring the track or video, description, comments, and engagement metrics. This page enables users to like, share, and comment on posts, fostering meaningful interactions between musicians and their fans.
+
+### 7. Category List Page
+
+To facilitate easy navigation and content discovery, Pulse offers a Category List Page that groups posts into various genres, themes, or tags. Users can explore content based on their specific interests, making it convenient to find music that resonates with them.
 
 ## Getting Started
 
-1. Pull down this repo
+To get started with Pulse, simply visit our website and create an account. Once registered, you can log in and start exploring the vibrant world of music, connect with fellow musicians, and share your passion for music with the community.
 
-1. Run the two scripts that are in the SQL folder. These will create the Tabloid database and add some test data. The database it creates is identitical to the prototype from the last MVC sprint, except now we're capturing the `FirebaseUserId` in the UserProfile table
+## Support
 
-1. Everyone on the team should create their own Firebase project. **Each team member** should do the follow steps in the firebase console:
-
-   - Go to [Firebase](https://console.firebase.google.com/u/0/) and add a new project. You can name it whatever you want (Tabloid is a good name)
-   - Go to the Authentication tab, click "Set up sign in method", and enable the Username and Password option.
-   - Add at least two new users in firebase. Use email addresses that you find in the UserProfile table of your SQL Server database
-   - Once firebase creates a UID for these users, copy the UID from firebase and update the `FirebaseUserId` column for the same users in your SQL Server database.
-   - Click the Gear icon in the sidebar to go to Project Settings. You'll need the information on this page for the next few steps
-
-1. Go to the `appSettings.Local.json.example` file. Replace the value for FirebaseProjectId with your own
-
-1. Rename the `appSettings.Local.json.example` file to remove the `.example` extension. This file should now just be called `appSettings.Local.json`
-
-1. Open your `client` directory in VsCode. Open the `.env.local.example` file and replace `__YOUR_API_KEY_HERE__` with your own firebase Web API Key
-
-1. Rename the `.env.local.example` file to remove the `.example` extension. This file should now just be called `.env.local`
-
-1. Install your dependencies by running `npm install` from the same directory as your `package.json` file
-
-## Mock-Ups
-
-The company has hired a designer and here are the mock-ups they provided.
-
-> **NOTE:** Styling should **_NOT_** be prioritized over functionality. UI/UX **is** important, but it's more important that you focus on the code.
-
-> **NOTE:** (The quill logo seen in some of the mockups is provided for you inside of the images folder along with the other mock-ups to use as needed!)
-
-### Colors
-
-These are the hex codes for the colors used in the mockups
-
-* Red: `#db534b`
-* Grey: `#6c767d`
-* Black: `#343a40`
-* Green: `#5bb8a6`
-
-### Login Page
-
-![Login Page](Images/Tabloid-Login.PNG)
-
-### Home Page
-
-![Home Page](Images/Tabloid_Home.png)
-
-### Explore Page
-
-![Explore Page](Images/Tabloid_Explore.png)
-
-### Your Post's Page
-
-![Your Post's Page](Images/Tabloid_MyPosts.png)
-
-### Create Post Form
-
-![Create Post Form](Images/Tabloid_CreatePost.png)
-
-### Post Details Page
-
-![Post Details Page](Images/Tabloid-PostDetails.PNG)
-
-### Category List Page
-
-![Category List Page](Images/Tabloid-Lists.PNG)
-# Pulse
+If you encounter any issues, have questions, or wish to provide feedback, please feel free to reach out via my website: http://www.dallenlarson.com/ or email dallen@dallenlarson.com
