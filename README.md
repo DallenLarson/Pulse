@@ -1,9 +1,5 @@
-#####################################################################
-# Pulse - A Social Media Platform for Musicians and Music Artists    #
-#####################################################################
-
 ![Pulse Logo](https://i.ibb.co/BVrQpjq/Pulse-Logo.png)
-
+# Pulse - A Social Media Platform for Musicians and Music Artists
 ## Introduction
 
 Pulse is a social media platform designed exclusively for musicians and music artists, providing them with a unique and dedicated space to connect, collaborate, and showcase their musical talents. Whether you're a seasoned musician, a budding artist, or simply a music enthusiast, Pulse offers a vibrant community where you can share your work, explore new talents, and engage with like-minded individuals in the music industry.
