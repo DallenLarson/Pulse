@@ -9,5 +9,10 @@ namespace Tabloid.Repositories
         Relationship GetById(int id);
         void Add(Relationship post);
         void Delete(int id);
+
+        List<Relationship> GetByFollowerId(int followerId);
+        List<Relationship> GetByFollowedId(int followedId);
+        void DeleteFollowers(int followerId);
+        void DeleteFolloweds(int followedId);
     }
 }

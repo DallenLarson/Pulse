@@ -30,6 +30,7 @@ namespace Tabloid
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<IPulseRepository, PulseRepository>();
             services.AddTransient<IPulseReactionRepository, PulseReactionRepository>();
+            services.AddTransient<IRelationshipRepository, RelationshipRepository>();
             //services.AddTransient<ICategoryRepository, CategoryRepository>();
             //IdentityModelEventSource.ShowPII = true;
             /*

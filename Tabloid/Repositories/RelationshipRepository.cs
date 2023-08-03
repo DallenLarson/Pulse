@@ -22,6 +22,8 @@ namespace Tabloid.Repositories
             {
                 conn.Open();
 
+
+
                 using (SqlCommand cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = @"
@@ -60,6 +62,36 @@ namespace Tabloid.Repositories
             }
         }
 
+        public void DeleteFolloweds(int followedId)
+        {
+            using (var conn = Connection)
+            {
+                conn.Open();
+                using (var cmd = conn.CreateCommand())
+                {
+                    // Step 1: Delete PulseReactions related to the Pulse
+                    cmd.CommandText = "DELETE FROM Relationship WHERE followedId = @Id";
+                    DbUtils.AddParameter(cmd, "@Id", followedId);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public void DeleteFollowers(int followerId)
+        {
+            using (var conn = Connection)
+            {
+                conn.Open();
+                using (var cmd = conn.CreateCommand())
+                {
+                    // Step 1: Delete PulseReactions related to the Pulse
+                    cmd.CommandText = "DELETE FROM Relationship WHERE followerId = @Id";
+                    DbUtils.AddParameter(cmd, "@Id", followerId);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
         public List<Relationship> GetAll()
         {
             using (var conn = Connection)
@@ -69,6 +101,64 @@ namespace Tabloid.Repositories
                 {
                     cmd.CommandText = @"SELECT * FROM dbo.Relationship R";
 
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+
+                        var posts = new List<Relationship>();
+                        while (reader.Read())
+                        {
+                            posts.Add(new Relationship()
+                            {
+                                Id = DbUtils.GetInt(reader, "Id"),
+                                FollowedId = DbUtils.GetInt(reader, "FollowedId"),
+                                FollowerId = DbUtils.GetInt(reader, "FollowerId")
+
+                            });
+                        }
+                        return posts;
+                    }
+                }
+            }
+        }
+
+        public List<Relationship> GetByFollowedId(int followedId)
+        {
+            using (var conn = Connection)
+            {
+                conn.Open();
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"SELECT * FROM dbo.Relationship R WHERE R.followedId = @id";
+                    DbUtils.AddParameter(cmd, "@Id", followedId);
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+
+                        var posts = new List<Relationship>();
+                        while (reader.Read())
+                        {
+                            posts.Add(new Relationship()
+                            {
+                                Id = DbUtils.GetInt(reader, "Id"),
+                                FollowedId = DbUtils.GetInt(reader, "FollowedId"),
+                                FollowerId = DbUtils.GetInt(reader, "FollowerId")
+
+                            });
+                        }
+                        return posts;
+                    }
+                }
+            }
+        }
+
+        public List<Relationship> GetByFollowerId(int followerId)
+        {
+            using (var conn = Connection)
+            {
+                conn.Open();
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"SELECT * FROM dbo.Relationship R WHERE R.FollowerId = @id";
+                    DbUtils.AddParameter(cmd, "@Id", followerId);
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
 
