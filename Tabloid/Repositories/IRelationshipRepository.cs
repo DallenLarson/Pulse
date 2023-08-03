@@ -3,9 +3,9 @@ using Tabloid.Models;
 
 namespace Tabloid.Repositories
 {
-    public interface IRelationship
+    public interface IRelationshipRepository
     {
-        List<IRelationship> GetAll();
+        List<Relationship> GetAll();
         Relationship GetById(int id);
         void Add(Relationship post);
         void Delete(int id);
