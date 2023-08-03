@@ -1,0 +1,17 @@
+/* header.css */
+
+/* Set the background color of the header to black */
+.navbar {
+  background-color: black;
+}
+
+/* Set the color of the text in the header to white */
+.navbar-light .navbar-brand,
+.navbar-light .navbar-nav .nav-link {
+  color: white;
+}
+
+/* Change the color of the active link in the navbar (if needed) */
+.navbar-light .navbar-nav .nav-link.active {
+  color: red; /* You can change 'red' to any other color you prefer */
+}
