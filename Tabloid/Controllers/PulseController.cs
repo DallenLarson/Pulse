@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Hosting;
 using System;
 using System.Security.Claims;
 using Tabloid.Models;
@@ -61,6 +62,13 @@ namespace Tabloid.Controllers
             _postRepository.Add(post);
             return CreatedAtAction(
                 nameof(GetPostById), new { post.Id }, post);
+        }
+
+        [HttpDelete]
+        public IActionResult Delete(int id)
+        {
+            _postRepository.Delete(id);
+            return Ok();
         }
 
         private User GetCurrentUserProfile()
