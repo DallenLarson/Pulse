@@ -47,7 +47,7 @@ namespace Tabloid.Controllers
         [HttpGet("follower/{followerId}")]
         public IActionResult GetRelationshipByFollowerId(int followerId)
         {
-            var post = _relationshipRepository.GetByFollowedId(followerId);
+            var post = _relationshipRepository.GetByFollowerId(followerId);
             if (post == null)
             {
                 return NotFound();
