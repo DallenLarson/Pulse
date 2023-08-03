@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Data.SqlClient;
@@ -183,7 +183,6 @@ namespace Tabloid.Repositories
                 }
             }
         }
-
         public void Delete(int id)
         {
             using (var conn = Connection)
@@ -191,12 +190,16 @@ namespace Tabloid.Repositories
                 conn.Open();
                 using (var cmd = conn.CreateCommand())
                 {
-                    cmd.CommandText = "DELETE FROM Pulse WHERE Id = @Id";
+                    // Step 1: Delete PulseReactions related to the Pulse
+                    cmd.CommandText = "DELETE FROM PulseReaction WHERE PulseId = @Id";
                     DbUtils.AddParameter(cmd, "@Id", id);
+                    cmd.ExecuteNonQuery();
+
+                    // Step 2: Delete the Pulse itself
+                    cmd.CommandText = "DELETE FROM Pulse WHERE Id = @Id";
                     cmd.ExecuteNonQuery();
                 }
             }
         }
     }
 }
-       
