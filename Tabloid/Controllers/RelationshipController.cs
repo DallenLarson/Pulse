@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using Tabloid.Models;
 using Tabloid.Repositories;
 
@@ -59,16 +60,23 @@ namespace Tabloid.Controllers
         [HttpPost]
         public IActionResult Post(Relationship post)
         {
-            Relationship relationship = new Relationship()
+            try
             {
-                Id = post.Id,
-                FollowedId = post.FollowedId,
-                FollowerId = post.FollowerId
-            };
-            _relationshipRepository.Add(relationship);
+                Relationship relationship = new Relationship()
+                {
+                    Id = post.Id,
+                    FollowedId = post.FollowedId,
+                    FollowerId = post.FollowerId
+                };
+                _relationshipRepository.Add(relationship);
 
-            return CreatedAtAction(
-               nameof(GetRelationshipById), new { post.Id }, post);
+                return CreatedAtAction(
+                   nameof(GetRelationshipById), new { post.Id }, post);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest();
+            }
         }
 
         [HttpDelete]
