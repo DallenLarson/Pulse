@@ -350,3 +350,4 @@ appsettings.Local.json
 
 # SQL Seed Data
 02_Tabloid_Seed_Data.sql
+/Tabloid/appsettings.json
